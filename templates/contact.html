@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-header"><h1>Contact</h1></section>
+<section class="contact-section">
+    <div class="contact-container">
+        <div class="contact-form-wrapper">
+            <form method="POST" action="{{ url_for('contact') }}" class="contact-form">
+                <div class="form-group"><label>Nom complet *</label><input type="text" name="name" required placeholder="Votre nom"></div>
+                <div class="form-row">
+                    <div class="form-group"><label>Email *</label><input type="email" name="email" required placeholder="votre@email.com"></div>
+                    <div class="form-group"><label>Telephone</label><input type="tel" name="phone" placeholder="+41 XX XXX XX XX"></div>
+                </div>
+                <div class="form-group"><label>Sujet</label><input type="text" name="subject" placeholder="Sujet"></div>
+                <div class="form-group"><label>Message *</label><textarea name="message" rows="6" required placeholder="Votre message..."></textarea></div>
+                <button type="submit" class="btn-primary"><i class="fas fa-paper-plane"></i> Envoyer</button>
+            </form>
+        </div>
+        <div class="contact-info-panel">
+            <h3>Informations</h3>
+            <div class="info-item"><i class="fas fa-phone"></i><p>+41 XX XXX XX XX</p></div>
+            <div class="info-item"><i class="fas fa-envelope"></i><p>info@laparenthese-bienetre.app</p></div>
+            <div class="info-item"><i class="fas fa-clock"></i><p>Lun-Ven: 9h-19h | Sam: 9h-17h</p></div>
+        </div>
+    </div>
+</section>
+{% endblock %}

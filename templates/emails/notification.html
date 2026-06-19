@@ -1,0 +1,7 @@
+<div style="font-family:sans-serif;padding:20px;">
+<h2>Nouveau Rendez-vous</h2>
+<p>Client: {{ appointment.client_name }}</p>
+<p>Email: {{ appointment.client_email }}</p>
+<p>Tel: {{ appointment.client_phone }}</p>
+<p>Soin: {{ appointment.service_name }}</p>
+<p>Date: {{ appointment.appointment_date.strftime('%d.%m.%Y %H:%M') }}</p></div>

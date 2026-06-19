@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-header"><h1>Nos Soins & Therapies</h1></section>
+<section class="services-detail">
+    {% for service in services %}
+    <div class="service-detail-card">
+        <div class="service-detail-icon">{{ service.icon }}</div>
+        <div class="service-detail-content">
+            <h2>{{ service.title }}</h2>
+            <p>{{ service.description }}</p>
+            <div class="service-info">
+                <span class="badge"><i class="fas fa-clock"></i> {{ service.duration }} min</span>
+                <span class="badge"><i class="fas fa-tag"></i> {{ service.price }}</span>
+            </div>
+            <a href="{{ url_for('booking') }}" class="btn-small">Prendre rendez-vous</a>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}

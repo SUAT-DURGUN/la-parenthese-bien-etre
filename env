@@ -1,0 +1,6 @@
+cat > .env << 'EOF'
+SECRET_KEY=la-parenthese-bien-etre-super-secret-2024
+MAIL_USERNAME=votre.email@gmail.com
+MAIL_PASSWORD=xxxx-xxxx-xxxx-xxxx
+CALENDLY_URL=https://calendly.com/laparenthese
+EOF

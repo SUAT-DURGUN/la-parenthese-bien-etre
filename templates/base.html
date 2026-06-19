@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Parenthese Bien-Etre</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-icon">🌿</span>
+                <span class="logo-text">La Parenthese <span class="highlight">Bien-Etre</span></span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/services">Nos Soins</a></li>
+                <li><a href="/about">A Propos</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/booking" class="btn-nav">Rendez-vous</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-container">
+                {% for category, message in messages %}
+                    <div class="flash-message {{ category }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    <main>{% block content %}{% endblock %}</main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col"><h3>La Parenthese Bien-Etre</h3><p>Votre pause bien-etre en Suisse.</p></div>
+            <div class="footer-col"><h3>Contact</h3><p>+41 XX XXX XX XX</p><p>info@laparenthese-bienetre.app</p></div>
+            <div class="footer-col"><h3>Horaires</h3><p>Lun-Ven: 9h-19h</p><p>Sam: 9h-17h</p></div>
+        </div>
+        <div class="footer-bottom"><p>2024 La Parenthese Bien-Etre</p></div>
+    </footer>
+    &lt;script>function toggleMenu(){document.getElementById('navLinks').classList.toggle('active');}&lt;/script>
+</body>
+</html>

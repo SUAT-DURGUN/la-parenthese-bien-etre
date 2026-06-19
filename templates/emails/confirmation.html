@@ -1,0 +1,6 @@
+<div style="font-family:sans-serif;max-width:600px;margin:0 auto;">
+<div style="background:#2d6a4f;color:white;padding:30px;text-align:center;"><h1>La Parenthese Bien-Etre</h1></div>
+<div style="padding:30px;"><p>Bonjour <strong>{{ appointment.client_name }}</strong>,</p><p>Votre rendez-vous:</p>
+<p>Soin: {{ appointment.service_name }}</p>
+<p>Date: {{ appointment.appointment_date.strftime('%d.%m.%Y') }}</p>
+<p>Heure: {{ appointment.appointment_date.strftime('%H:%M') }}</p></div></div>

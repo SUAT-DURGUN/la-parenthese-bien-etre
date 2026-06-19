@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-header"><h1>Admin Panel</h1></section>
+<section class="admin-section">
+    <div class="admin-container">
+        <div class="admin-card">
+            <h2>Rendez-vous ({{ appointments|length }})</h2>
+            <table class="admin-table">
+                <thead><tr><th>Client</th><th>Soin</th><th>Date</th><th>Tel</th><th>Statut</th><th>Action</th></tr></thead>
+                <tbody>
+                {% for apt in appointments %}
+                <tr>
+                    <td><strong>{{ apt.client_name }}</strong><br><small>{{ apt.client_email }}</small></td>
+                    <td>{{ apt.service_name }}</td>
+                    <td>{{ apt.appointment_date.strftime('%d.%m.%Y %H:%M') }}</td>
+                    <td>{{ apt.client_phone }}</td>
+                    <td><span class="status-badge status-{{ apt.status }}">{{ apt.status }}</span></td>
+                    <td><a href="{{ url_for('admin_confirm', id=apt.id) }}">✅</a> <a href="{{ url_for('admin_cancel', id=apt.id) }}">❌</a></td>
+                </tr>
+                {% endfor %}
+                {% if not appointments %}<tr><td colspan="6" style="text-align:center;padding:30px;">Aucun rendez-vous</td></tr>{% endif %}
+                </tbody>
+            </table>
+        </div>
+        <div class="admin-card">
+            <h2>Messages ({{ messages|length }})</h2>
+            <table class="admin-table">
+                <thead><tr><th>Nom</th><th>Email</th><th>Message</th><th>Date</th></tr></thead>
+                <tbody>
+                {% for msg in messages %}
+                <tr>
+                    <td>{{ msg.name }}</td>
+                    <td>{{ msg.email }}</td>
+                    <td>{{ msg.message[:80] }}</td>
+                    <td>{{ msg.created_at.strftime('%d.%m.%Y') }}</td>
+                </tr>
+                {% endfor %}
+                {% if not messages %}<tr><td colspan="4" style="text-align:center;padding:30px;">Aucun message</td></tr>{% endif %}
+                </tbody>
+            </table>
+        </div>
+        <a href="{{ url_for('admin_logout') }}" class="btn-primary" style="margin-top:20px;">Deconnexion</a>
+    </div>
+</section>
+{% endblock %}

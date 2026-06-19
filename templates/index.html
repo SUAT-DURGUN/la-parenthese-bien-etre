@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>La Parenthese <span class="highlight">Bien-Etre</span></h1>
+        <p class="hero-subtitle">Offrez-vous une pause therapeutique. Corps, esprit et ame en harmonie.</p>
+        <div class="hero-buttons">
+            <a href="{{ url_for('booking') }}" class="btn-primary">Prendre Rendez-vous</a>
+            <a href="{{ url_for('services_page') }}" class="btn-secondary">Decouvrir nos soins</a>
+        </div>
+    </div>
+</section>
+<section class="services-preview">
+    <div class="section-header">
+        <h2>Soins & Therapies</h2>
+        <p>Des approches naturelles et holistiques pour votre bien-etre</p>
+    </div>
+    <div class="services-grid">
+        {% for service in services %}
+        <div class="service-card">
+            <div class="service-icon">{{ service.icon }}</div>
+            <h3>{{ service.title }}</h3>
+            <p>{{ service.description }}</p>
+            <div class="service-meta">
+                <span><i class="fas fa-clock"></i> {{ service.duration }} min</span>
+                <span><i class="fas fa-tag"></i> {{ service.price }}</span>
+            </div>
+            <a href="{{ url_for('booking') }}" class="btn-card">Reserver</a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+<section class="why-us">
+    <div class="section-header"><h2>Pourquoi Nous Choisir?</h2></div>
+    <div class="features-grid">
+        <div class="feature"><div class="feature-icon">🎓</div><h3>Therapeutes Certifies</h3><p>Professionnels diplomes avec experience</p></div>
+        <div class="feature"><div class="feature-icon">🌿</div><h3>Approche Holistique</h3><p>Soins du corps, esprit et ame</p></div>
+        <div class="feature"><div class="feature-icon">🏔️</div><h3>Au Coeur de la Suisse</h3><p>Un cadre apaisant pour votre bien-etre</p></div>
+        <div class="feature"><div class="feature-icon">⭐</div><h3>Sur Mesure</h3><p>Chaque soin adapte a vos besoins</p></div>
+    </div>
+</section>
+<section class="cta-section">
+    <h2>Pret(e) a prendre soin de vous?</h2>
+    <p>Reservez votre seance et offrez-vous une parenthese de bien-etre</p>
+    <a href="{{ url_for('booking') }}" class="btn-primary">Reserver maintenant</a>
+</section>
+{% endblock %}

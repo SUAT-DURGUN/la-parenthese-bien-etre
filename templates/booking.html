@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-header"><h1>Prendre Rendez-vous</h1></section>
+<section class="booking-section">
+    <div class="booking-container">
+        <div class="booking-form-wrapper">
+            <h2><i class="fas fa-calendar-check"></i> Reservation en ligne</h2>
+            <form method="POST" action="{{ url_for('booking') }}" class="booking-form">
+                <div class="form-group"><label>Soin souhaite *</label>
+                    <select name="service" required><option value="">-- Choisir --</option>
+                    {% for service in services %}<option value="{{ service.id }}">{{ service.title }} ({{ service.duration }}min - {{ service.price }})</option>{% endfor %}
+                    </select></div>
+                <div class="form-row">
+                    <div class="form-group"><label>Date *</label><input type="date" name="date" min="{{ min_date }}" required></div>
+                    <div class="form-group"><label>Heure *</label><select name="time" required><option value="">-- Choisir --</option>{% for time in available_times %}<option value="{{ time }}">{{ time }}</option>{% endfor %}</select></div>
+                </div>
+                <div class="form-group"><label>Nom complet *</label><input type="text" name="name" required placeholder="Votre nom"></div>
+                <div class="form-row">
+                    <div class="form-group"><label>Email *</label><input type="email" name="email" required placeholder="votre@email.com"></div>
+                    <div class="form-group"><label>Telephone *</label><input type="tel" name="phone" required placeholder="+41 XX XXX XX XX"></div>
+                </div>
+                <div class="form-group"><label>Message (optionnel)</label><textarea name="message" rows="3" placeholder="Besoins particuliers..."></textarea></div>
+                <button type="submit" class="btn-primary"><i class="fas fa-check"></i> Confirmer</button>
+            </form>
+        </div>
+        <div class="booking-sidebar">
+            <div class="sidebar-card"><h3><i class="fab fa-whatsapp"></i> WhatsApp</h3><a href="https://wa.me/41XXXXXXXXX" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a></div>
+            <div class="sidebar-card info-card"><h3>Info</h3><ul><li>Annulation gratuite 24h avant</li><li>Confirmation par email</li><li>Paiement sur place</li></ul></div>
+        </div>
+    </div>
+</section>
+{% endblock %}

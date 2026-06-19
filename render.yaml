@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: la-parenthese
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: SECRET_KEY
+        value: la-parenthese-bien-etre-super-secret-2024
+      - key: MAIL_USERNAME
+        value: senin.email@icloud.com
+      - key: MAIL_PASSWORD
+        value: senin-app-password
