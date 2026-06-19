@@ -135,6 +135,13 @@ def admin_cancel(id):
     return redirect(url_for('admin_panel'))
 
 @app.route('/admin/logout')
+@app.route('/impressum')
+def impressum():
+    return render_template('impressum.html', lang=g.get('lang', 'fr'))
+
+@app.route('/datenschutz')
+def datenschutz():
+    return render_template('datenschutz.html', lang=g.get('lang', 'fr'))
 def admin_logout():
     session.pop('admin', None)
     return redirect(url_for('index'))

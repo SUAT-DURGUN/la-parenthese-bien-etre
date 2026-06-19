@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{ lang }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,20 +12,20 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="/" class="logo">
-                <span class="logo-icon">🌿</span>
+                <img src="/static/images/logo.png" alt="Logo" style="height:45px;" onerror="this.style.display='none'">
                 <span class="logo-text">La Parenthese <span class="highlight">Bien-Etre</span></span>
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="/">Accueil</a></li>
-                <li><a href="/services">Nos Soins</a></li>
-                <li><a href="/about">A Propos</a></li>
+                <li><a href="/">{% if lang == 'de' %}Startseite{% elif lang == 'en' %}Home{% else %}Accueil{% endif %}</a></li>
+                <li><a href="/services">{% if lang == 'de' %}Behandlungen{% elif lang == 'en' %}Services{% else %}Nos Soins{% endif %}</a></li>
+                <li><a href="/about">{% if lang == 'de' %}Über uns{% elif lang == 'en' %}About{% else %}A Propos{% endif %}</a></li>
                 <li><a href="/contact">Contact</a></li>
-                <li><a href="/booking" class="btn-nav">Rendez-vous</a></li>
+                <li><a href="/booking" class="btn-nav">{% if lang == 'de' %}Termin{% elif lang == 'en' %}Book Now{% else %}Rendez-vous{% endif %}</a></li>
                 <li class="lang-switcher">
-    <a href="/set-language/fr" class="{% if lang == 'fr' %}active-lang{% endif %}">FR</a>
-    <a href="/set-language/de" class="{% if lang == 'de' %}active-lang{% endif %}">DE</a>
-    <a href="/set-language/en" class="{% if lang == 'en' %}active-lang{% endif %}">EN</a>
-</li>
+                    <a href="/set-language/fr" class="{% if lang == 'fr' %}active-lang{% endif %}">FR</a>
+                    <a href="/set-language/de" class="{% if lang == 'de' %}active-lang{% endif %}">DE</a>
+                    <a href="/set-language/en" class="{% if lang == 'en' %}active-lang{% endif %}">EN</a>
+                </li>
             </ul>
             <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
         </div>
@@ -40,13 +40,29 @@
         {% endif %}
     {% endwith %}
     <main>{% block content %}{% endblock %}</main>
+    <a href="https://wa.me/41791234567" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
     <footer>
         <div class="footer-container">
-            <div class="footer-col"><h3>La Parenthese Bien-Etre</h3><p>Votre pause bien-etre en Suisse.</p></div>
-            <div class="footer-col"><h3>Contact</h3><p>+41 XX XXX XX XX</p><p>info@laparenthese-bienetre.app</p></div>
-            <div class="footer-col"><h3>Horaires</h3><p>Lun-Ven: 9h-19h</p><p>Sam: 9h-17h</p></div>
+            <div class="footer-col">
+                <h3>🌿 La Parenthese Bien-Etre</h3>
+                <p>{% if lang == 'de' %}Ihr Wohlbefinden im Herzen der Schweiz.{% elif lang == 'en' %}Your well-being in the heart of Switzerland.{% else %}Votre pause bien-etre au coeur de la Suisse.{% endif %}</p>
+            </div>
+            <div class="footer-col">
+                <h3>{% if lang == 'de' %}Behandlungen{% elif lang == 'en' %}Services{% else %}Nos Soins{% endif %}</h3>
+                <ul><li>Andulation Therapie</li><li>Massage Classique</li><li>Therapie Manuelle</li><li>Hijama</li><li>Roqya</li></ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <p><i class="fas fa-phone"></i> +41 XX XXX XX XX</p>
+                <p><i class="fas fa-envelope"></i> info@laparenthese-bienetre.app</p>
+            </div>
+            <div class="footer-col">
+                <h3>{% if lang == 'de' %}Offnungszeiten{% elif lang == 'en' %}Hours{% else %}Horaires{% endif %}</h3>
+                <p>{% if lang == 'de' %}Mo-Fr{% elif lang == 'en' %}Mon-Fri{% else %}Lun-Ven{% endif %}: 9h-19h</p>
+                <p>{% if lang == 'de' %}Sa{% elif lang == 'en' %}Sat{% else %}Sam{% endif %}: 9h-17h</p>
+            </div>
         </div>
-        <div class="footer-bottom"><p>2024 La Parenthese Bien-Etre</p></div>
+        <div class="footer-bottom"><p>2024 La Parenthese Bien-Etre. {% if lang == 'de' %}Alle Rechte vorbehalten.{% elif lang == 'en' %}All rights reserved.{% else %}Tous droits reserves.{% endif %} | <a href="/impressum" style="color:#d4a373;">Impressum</a> | <a href="/datenschutz" style="color:#d4a373;">{% if lang == 'de' %}Datenschutz{% elif lang == 'en' %}Privacy{% else %}Confidentialite{% endif %}</a></p></div>
     </footer>
     &lt;script>function toggleMenu(){document.getElementById('navLinks').classList.toggle('active');}&lt;/script>
 </body>

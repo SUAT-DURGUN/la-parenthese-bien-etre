@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-header"><h1>{% if lang == 'de' %}Datenschutz{% elif lang == 'en' %}Privacy Policy{% else %}Politique de confidentialite{% endif %}</h1></section>
+<section class="about-content">
+    <div class="about-text">
+        <h2>1. {% if lang == 'de' %}Verantwortlich{% elif lang == 'en' %}Responsible{% else %}Responsable{% endif %}</h2>
+        <p>La Parenthese Bien-Etre<br>[VOTRE ADRESSE]<br>Suisse</p>
+
+        <h2>2. {% if lang == 'de' %}Erhobene Daten{% elif lang == 'en' %}Data Collected{% else %}Donnees collectees{% endif %}</h2>
+        <p>{% if lang == 'de' %}Wir erheben folgende Daten:{% elif lang == 'en' %}We collect the following data:{% else %}Nous collectons les donnees suivantes:{% endif %}</p>
+        <ul class="values-list">
+            <li>{% if lang == 'de' %}Name, E-Mail, Telefonnummer{% elif lang == 'en' %}Name, email, phone number{% else %}Nom, email, numero de telephone{% endif %}</li>
+            <li>{% if lang == 'de' %}Terminbuchungsdaten{% elif lang == 'en' %}Appointment booking data{% else %}Donnees de reservation de rendez-vous{% endif %}</li>
+            <li>{% if lang == 'de' %}Kontaktformular-Nachrichten{% elif lang == 'en' %}Contact form messages{% else %}Messages du formulaire de contact{% endif %}</li>
+        </ul>
+
+        <h2>3. {% if lang == 'de' %}Verwendungszweck{% elif lang == 'en' %}Purpose{% else %}Utilisation{% endif %}</h2>
+        <p>{% if lang == 'de' %}Ihre Daten werden ausschliesslich zur Terminverwaltung und Kommunikation verwendet.{% elif lang == 'en' %}Your data is used exclusively for appointment management and communication.{% else %}Vos donnees sont utilisees exclusivement pour la gestion des rendez-vous et la communication.{% endif %}</p>
+
+        <h2>4. {% if lang == 'de' %}Datenweitergabe{% elif lang == 'en' %}Data Sharing{% else %}Partage des donnees{% endif %}</h2>
+        <p>{% if lang == 'de' %}Wir geben Ihre Daten nicht an Dritte weiter.{% elif lang == 'en' %}We do not share your data with third parties.{% else %}Nous ne partageons pas vos donnees avec des tiers.{% endif %}</p>
+
+        <h2>5. {% if lang == 'de' %}Ihre Rechte{% elif lang == 'en' %}Your Rights{% else %}Vos droits{% endif %}</h2>
+        <p>{% if lang == 'de' %}Sie haben das Recht auf Auskunft, Berichtigung und Loeschung Ihrer Daten. Kontaktieren Sie uns per Email.{% elif lang == 'en' %}You have the right to access, correct, and delete your data. Contact us by email.{% else %}Vous avez le droit d acces, de rectification et de suppression de vos donnees. Contactez-nous par email.{% endif %}</p>
+
+        <h2>6. {% if lang == 'de' %}Anwendbares Recht{% elif lang == 'en' %}Applicable Law{% else %}Droit applicable{% endif %}</h2>
+        <p>{% if lang == 'de' %}Schweizerisches Datenschutzgesetz (DSG/nDSG){% elif lang == 'en' %}Swiss Data Protection Act (FADP/nFADP){% else %}Loi federale sur la protection des donnees (LPD/nLPD){% endif %}</p>
+    </div>
+</section>
+{% endblock %}
