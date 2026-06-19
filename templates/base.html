@@ -21,6 +21,11 @@
                 <li><a href="/about">A Propos</a></li>
                 <li><a href="/contact">Contact</a></li>
                 <li><a href="/booking" class="btn-nav">Rendez-vous</a></li>
+                <li class="lang-switcher">
+    <a href="/set-language/fr" class="{% if lang == 'fr' %}active-lang{% endif %}">FR</a>
+    <a href="/set-language/de" class="{% if lang == 'de' %}active-lang{% endif %}">DE</a>
+    <a href="/set-language/en" class="{% if lang == 'en' %}active-lang{% endif %}">EN</a>
+</li>
             </ul>
             <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
         </div>
